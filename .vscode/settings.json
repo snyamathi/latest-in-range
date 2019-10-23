@@ -1,0 +1,9 @@
+{
+    "editor.codeActionsOnSave": {
+        "source.fixAll.tslint": true
+    },
+    "tslint.configFile": "tslint.json",
+    "files.exclude": {
+        "dist": true
+    }
+}

@@ -1,0 +1,36 @@
+{
+  "name": "latest-in-range",
+  "version": "1.0.0",
+  "description": "Update package.json deps to the latest in their semver range",
+  "keywords": [
+    "semver"
+  ],
+  "license": "ISC",
+  "author": "Suneil Nyamathi <snyamathi@gmail.com>",
+  "files": [
+    "bin",
+    "dist"
+  ],
+  "main": "index.js",
+  "bin": {
+    "latest-in-range": "./bin/latest-in-range"
+  },
+  "scripts": {
+    "build": "tsc",
+    "lint": "tslint -p ."
+  },
+  "dependencies": {
+    "npm-conf": "^1.1.3",
+    "semver": "^6.3.0"
+  },
+  "devDependencies": {
+    "@types/async": "^3.0.2",
+    "@types/node": "^12.11.2",
+    "@types/semver": "^6.0.2",
+    "prettier": "^1.18.2",
+    "tslint": "^5.20.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-plugin-prettier": "^2.0.1",
+    "typescript": "^3.6.3"
+  }
+}
