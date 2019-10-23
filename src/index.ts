@@ -4,8 +4,12 @@ import path from "path";
 import semver from "semver";
 import { getJSON } from "./utils";
 
-const registry = npmConf().get("registry");
-const regex = /^[\^~]\d+(.\d+)?(.\d+)?$/;
+const regex = /^(?:>=|[\^~>])\d+(.\d+)?(.\d+)?$/;
+
+const registry = (() => {
+  const result = npmConf().get("registry");
+  return result.endsWith("/") ? result : result + "/";
+})();
 
 const getRegistryMetadata = async (name: string) => {
   const url = registry + name;

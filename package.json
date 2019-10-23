@@ -1,6 +1,6 @@
 {
   "name": "latest-in-range",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Update package.json deps to the latest in their semver range",
   "keywords": [
     "semver"
@@ -24,13 +24,13 @@
     "semver": "^6.3.0"
   },
   "devDependencies": {
-    "@types/async": "^3.0.2",
-    "@types/node": "^12.11.2",
-    "@types/semver": "^6.0.2",
-    "prettier": "^1.18.2",
-    "tslint": "^5.20.0",
+    "@types/async": "^3.0.3",
+    "@types/node": "^12.12.14",
+    "@types/semver": "^6.2.0",
+    "prettier": "^1.19.1",
+    "tslint": "^5.20.1",
     "tslint-config-prettier": "^1.18.0",
     "tslint-plugin-prettier": "^2.0.1",
-    "typescript": "^3.6.3"
+    "typescript": "^3.7.2"
   }
 }
