@@ -5,6 +5,10 @@ import semver from "semver";
 import { getJSON } from "./utils";
 
 const regex = /^(?:>=|[\^~>])\d+(.\d+)?(.\d+)?$/;
+const dirname = process
+  .cwd()
+  .split(path.sep)
+  .pop();
 
 const registry = (() => {
   const result = npmConf().get("registry");
@@ -36,7 +40,7 @@ const checkDependency = async (deps: Record<string, string>, dep: string) => {
     const symbol = /^([^\d]*)/.exec(range)![1] || "";
     const next = `${symbol}${latest}`;
     if (range !== next) {
-      console.log(`**${dep}**`, range, "=>", next);
+      console.log([dirname, dep, range, next].join());
     }
     deps[dep] = next;
   } catch (e) {
