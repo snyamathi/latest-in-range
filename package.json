@@ -1,6 +1,6 @@
 {
   "name": "latest-in-range",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Update package.json deps to the latest in their semver range",
   "keywords": [
     "semver"

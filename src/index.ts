@@ -36,7 +36,7 @@ const checkDependency = async (deps: Record<string, string>, dep: string) => {
     const symbol = /^([^\d]*)/.exec(range)![1] || "";
     const next = `${symbol}${latest}`;
     if (range !== next) {
-      console.log(dep, range, "=>", next);
+      console.log(`**${dep}**`, range, "=>", next);
     }
     deps[dep] = next;
   } catch (e) {
