@@ -28,7 +28,6 @@ const getLatestVersion = async (name: string, range: string) => {
 const checkDependency = async (deps: Record<string, string>, dep: string) => {
   const range = deps[dep];
   if (!regex.test(range)) {
-    console.log("skip", dep, range);
     return;
   }
 
@@ -41,7 +40,7 @@ const checkDependency = async (deps: Record<string, string>, dep: string) => {
     }
     deps[dep] = next;
   } catch (e) {
-    console.log("error", dep, range);
+    // do nothing
   }
 };
 
