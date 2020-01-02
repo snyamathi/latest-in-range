@@ -4,7 +4,7 @@ import path from "path";
 import semver from "semver";
 import { getJSON } from "./utils";
 
-const regex = /^(?:>=|[\^~>])\d+(.\d+)?(.\d+)?$/;
+const regex = /^(?:>=|[\^~>])\d+(.\d+)?(.\d+)?(-\w+\.\d+)?$/;
 const dirname = process
   .cwd()
   .split(path.sep)
