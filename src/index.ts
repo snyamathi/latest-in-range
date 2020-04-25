@@ -5,10 +5,7 @@ import semver from "semver";
 import { getJSON } from "./utils";
 
 const regex = /^(?:>=|[\^~>])\d+(.\d+)?(.\d+)?(-\w+\.\d+)?$/;
-const dirname = process
-  .cwd()
-  .split(path.sep)
-  .pop();
+const dirname = process.cwd().split(path.sep).pop();
 
 const registry = (() => {
   const result = npmConf().get("registry");
@@ -22,7 +19,7 @@ const getRegistryMetadata = async (name: string) => {
 
 const getLatestVersion = async (name: string, range: string) => {
   const metadata = await getRegistryMetadata(name);
-  const versions = Object.keys(metadata.versions).filter(version =>
+  const versions = Object.keys(metadata.versions).filter((version) =>
     semver.satisfies(version, range)
   );
   const latest = versions.sort(semver.compare).pop();
@@ -49,7 +46,7 @@ const checkDependency = async (deps: Record<string, string>, dep: string) => {
 };
 
 const checkDependencies = async (deps: Record<string, string> = {}) => {
-  const promises: Array<Promise<void>> = [];
+  const promises: Promise<void>[] = [];
   for (const dep in deps) {
     promises.push(checkDependency(deps, dep));
   }
@@ -68,7 +65,7 @@ export default async () => {
   const pkg = require(filePath);
   await Promise.all([
     checkDependencies(pkg.dependencies),
-    checkDependencies(pkg.devDependencies)
+    checkDependencies(pkg.devDependencies),
   ]);
   await write(filePath, pkg);
 };
