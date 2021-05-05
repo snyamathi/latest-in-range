@@ -24,13 +24,13 @@
     "semver": "^6.3.0"
   },
   "devDependencies": {
-    "@types/async": "^3.2.0",
-    "@types/node": "^13.13.2",
-    "@types/semver": "^7.1.0",
-    "prettier": "^2.0.5",
+    "@types/async": "^3.2.6",
+    "@types/node": "^15.0.2",
+    "@types/semver": "^7.3.5",
+    "prettier": "^2.2.1",
     "tslint": "^6.1.1",
     "tslint-config-prettier": "^1.18.0",
     "tslint-plugin-prettier": "^2.3.0",
-    "typescript": "^3.8.3"
+    "typescript": "^4.2.4"
   }
 }

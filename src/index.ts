@@ -1,3 +1,4 @@
+import assert from 'assert';
 import fs from "fs";
 import npmConf from "npm-conf";
 import path from "path";
@@ -34,6 +35,7 @@ const checkDependency = async (deps: Record<string, string>, dep: string) => {
 
   try {
     const latest = await getLatestVersion(dep, range);
+    assert.ok(latest)
     const symbol = /^([^\d]*)/.exec(range)![1] || "";
     const next = `${symbol}${latest}`;
     if (range !== next) {
