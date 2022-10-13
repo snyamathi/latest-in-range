@@ -9,7 +9,7 @@ const regex = /^(?:>=|[\^~>])\d+(.\d+)?(.\d+)?(-\w+\.\d+)?$/;
 const dirname = process.cwd().split(path.sep).pop();
 
 const filter = (() => {
-  const args = process.argv.slice();
+  const args = process.argv.slice(2);
   if (args.length === 0) {
     return (name: string) => true;
   }
