@@ -8,6 +8,16 @@ import { getJSON } from "./utils";
 const regex = /^(?:>=|[\^~>])\d+(.\d+)?(.\d+)?(-\w+\.\d+)?$/;
 const dirname = process.cwd().split(path.sep).pop();
 
+const filter = (() => {
+  const args = process.argv.slice();
+  if (args.length === 0) {
+    return (name: string) => true;
+  }
+
+  const set = new Set(args);
+  return (name: string) => set.has(name);
+})();
+
 const registry = (() => {
   const result = npmConf().get("registry");
   return result.endsWith("/") ? result : result + "/";
@@ -50,7 +60,9 @@ const checkDependency = async (deps: Record<string, string>, dep: string) => {
 const checkDependencies = async (deps: Record<string, string> = {}) => {
   const promises: Promise<void>[] = [];
   for (const dep in deps) {
-    promises.push(checkDependency(deps, dep));
+    if (filter(dep)) {
+      promises.push(checkDependency(deps, dep));
+    }
   }
   return Promise.all(promises);
 };
